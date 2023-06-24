@@ -1,217 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <title>Screenshot by Lightshot</title>
-        <meta property="og:title" content="Screenshot">
-        <!-- <meta property="og:url" content="https://<?= $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] ?>"> -->
-        <meta property="og:site_name" content="Lightshot">
-        <meta property="og:description" content="Captured with Lightshot">
-        <meta property="og:type" content="website">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Screenshot by Lightshot</title>
+    <meta property="og:title" content="Screenshot">
+    <!-- <meta property="og:url" content="https://<?= $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] ?>"> -->
+    <meta property="og:site_name" content="Lightshot">
+    <meta property="og:description" content="Captured with Lightshot">
+    <meta property="og:type" content="website">
 
 
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;900&display=swap" rel="stylesheet">
 
-        <style type="text/css">
-            p {
-                margin: 0;
-            }
+    <style type="text/css">
+        p {
+            margin: 0;
+        }
 
-            *, *::before, *::after {
-                box-sizing: border-box;
-            }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
 
-            .overlay, .scare {
-                position: fixed;
+        .overlay,
+        .scare {
+            position: fixed;
 
-                top: 0;
-                left: 0;
+            top: 0;
+            left: 0;
 
-                height: 100vh;
-                width: 100vw;
-            }
+            height: 100vh;
+            width: 100vw;
+        }
 
-            p.overlay-title {
-                font-size: 24px;
-                font-weight: 900;
-                color: black;
-                line-height: 1;
+        p.overlay-title {
+            font-family: math;
+            font-size: 24px;
+            font-weight: 900;
+            color: black;
+            line-height: 1;
 
-                margin-bottom: 16px;
-            }
+            margin-bottom: 16px;
+        }
 
-            .overlay-button {
-                display: inline-flex;
-                align-items: center;
+        .overlay-button {
+            display: inline-flex;
+            align-items: center;
 
-                height: 40px;
+            height: 40px;
 
-                padding-right: 24px;
-                padding-left: 24px;
+            padding-right: 24px;
+            padding-left: 24px;
 
-                font-size: 16px;
-                font-weight: 500;
-                line-height: 1;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1;
 
-                border-radius: 4px;
+            border-radius: 4px;
 
-                margin: 4px;
+            margin: 4px;
 
-                cursor: pointer;
-            }
+            cursor: pointer;
+        }
 
-            .overlay-buttons-wrapper {
-                margin: 24px -8px -8px;
-            }
+        .overlay-buttons-wrapper {
+            margin: 24px -8px -8px;
+        }
 
-            #accept-button {
-                background-color: #000000;
-                color: white;
-            }
+        #accept-button {
+            background-color: #000000;
+            color: white;
+        }
 
-            #decline-button {
-                color: #000000;
-                border: 2px solid #000000;
-            }
+        #decline-button {
+            color: #000000;
+            border: 2px solid #000000;
+        }
 
-            p.overlay-description {
-                text-align: justify;
-                font-size: 16px;
-                font-weight: 400;
-                color: rgba(0, 0, 0, 0.5);
-                line-height: 1.25;
+        p.overlay-description {
+            text-align: justify;
+            font-size: 16px;
+            font-weight: 400;
+            color: rgba(0, 0, 0, 0.5);
+            line-height: 1.25;
 
-                margin-bottom: 16px;
-            }
+            margin-bottom: 16px;
+        }
 
-            a.overlay-link {
-                display: inline-block;
+        a.overlay-link {
+            display: inline-block;
 
-                text-decoration: none;
+            text-decoration: none;
 
-                font-size: 16px;
-                font-weight: 500;
-                color: #000000;
-                line-height: 1;
+            font-size: 16px;
+            font-weight: 500;
+            color: #000000;
+            line-height: 1;
 
-                position: relative;
+            position: relative;
 
-                margin-top: 16px;
-            }
+            margin-top: 16px;
+        }
 
-            a.overlay-link::before {
-                position: absolute;
+        a.overlay-link::before {
+            position: absolute;
 
-                content: "";
+            content: "";
 
-                height: calc(50% + 4px);
-                width: calc(100% + 8px);
+            height: calc(50% + 4px);
+            width: calc(100% + 8px);
 
-                bottom: -4px;
-                left: -4px;
+            bottom: -4px;
+            left: -4px;
 
-                background-color: #8888881f;
-            }
+            background-color: #8888881f;
+        }
 
-            .overlay-body {
-                max-width: 512px;
+        .overlay-body {
+            border: #32f2e5 solid 3px;
+            background: #ffffffe6;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 512px;
+            text-align: center;
+            font-family: "Inter", sans-serif;
+        }
 
-                text-align: center;
+        .overlay[hidden] {
+            display: none;
+        }
 
-                font-family: "Inter", sans-serif;
-            }
+        .overlay {
+            z-index: 3;
 
-            .overlay[hidden] {
-                display: none;
-            }
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url(image1.jpg);
 
-            .overlay {
-                z-index: 2;
 
-                display: flex;
-                align-items: center;
-                justify-content: center;
+        }
 
-                background-color: #f5f6fa;
+        .fundo {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(90deg, hsl(0deg 0% 41.09% / 13%), hsl(0deg 1% 14% / 42%));
+            flex-direction: column;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 500px;
+        }
 
-                padding-right: 24px;
-                padding-left: 24px;
-            }
 
-            .scare {
-                z-index: 1;
-            }
+        h1{
+            color: #32f2e5;
+            background-color: #32f2e500;
+            display: flex;
+        }
 
-            video#video {
-                height: 100%;
-                width: 100%;
+        .scare {
+            z-index: 1;
+        }
 
-                object-fit: cover;
-            }
+        video#video {
+            height: 100%;
+            width: 100%;
 
-            video#video::-webkit-media-controls-enclosure {
-                display:none !important;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="overlay" class="overlay">
+            object-fit: cover;
+        }
+
+        video#video::-webkit-media-controls-enclosure {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="overlay" class="overlay">
+        <div class="fundo">
             <div class="overlay-body">
                 <p class="overlay-title">Aceite os termos para prosseguir</p>
 
-                <p class="overlay-description">Uso de cookies: Utilizamos cookies e tecnologias similares para melhorar a funcionalidade do site e fornecer uma experiência personalizada. Os cookies são pequenos arquivos de texto armazenados no seu dispositivo que nos permitem reconhecer informações específicas sobre sua visita e preferências. Você pode optar por desativar os cookies nas configurações do seu navegador, mas isso pode afetar o funcionamento adequado do site</p>
+                <p class="overlay-description">Uso de cookies: Utilizamos cookies e tecnologias similares para melhorar
+                    a funcionalidade do site e fornecer uma experiência personalizada. Os cookies são pequenos arquivos
+                    de texto armazenados no seu dispositivo que nos permitem reconhecer informações específicas sobre
+                    sua visita e preferências. Você pode optar por desativar os cookies nas configurações do seu
+                    navegador, mas isso pode afetar o funcionamento adequado do site</p>
 
-                <p class="overlay-description">Medidas de segurança: Empregamos medidas técnicas e organizacionais adequadas para proteger suas informações pessoais contra acesso não autorizado, uso indevido, divulgação, alteração ou destruição. No entanto, é importante ressaltar que nenhum método de transmissão ou armazenamento de dados é seguro, <b> garantimos a segurança das informações</b>.</p>
+                <p class="overlay-description">Medidas de segurança: Empregamos medidas técnicas e organizacionais
+                    adequadas para proteger suas informações pessoais contra acesso não autorizado, uso indevido,
+                    divulgação, alteração ou destruição. No entanto, é importante ressaltar que nenhum método de
+                    transmissão ou armazenamento de dados é seguro, <b> garantimos a segurança das informações</b>.</p>
 
                 <div class="overlay-buttons-wrapper">
                     <div id="accept-button" class="overlay-button">Aceitar</div>
                     <div id="decline-button" class="overlay-button">Sair</div>
                 </div>
 
-                <a href="https://app.prntscr.com/en/privacy.html" target="_blank" class="overlay-link">Privacy policy</a>
+                <a href="https://app.prntscr.com/en/privacy.html" target="_blank" class="overlay-link">Politica e privacidade</a>
             </div>
         </div>
+    </div>
 
-        <div class="scare">
-            <video id="video" class="video" src="/video.mp4" loop></video>
-        </div>
+    <div class="scare">
+        
+        <video id="video" class="video" src="/video.mp4" loop></video>
+    </div>
 
-        <script type="text/javascript">
-            const video = document.getElementById("video");
-            const overlay = document.getElementById("overlay");
-            const declineButton = document.getElementById("decline-button");
-            const acceptButton = document.getElementById("accept-button");
+    <script type="text/javascript">
+        const video = document.getElementById("video");
+        const overlay = document.getElementById("overlay");
+        const declineButton = document.getElementById("decline-button");
+        const acceptButton = document.getElementById("accept-button");
 
-            let hasClicked;
+        let hasClicked;
 
-            window.onbeforeunload = function( ) {
-                if(hasClicked) return true;
-            };
+        window.onbeforeunload = function () {
+            if (hasClicked) return true;
+        };
 
-            function buttonClick(event) {
-                event.preventDefault();
-                if(!hasClicked) hasClicked = true;
-                overlay.hidden = true;
-                video.play();
-                videoClick();
-            }
+        function buttonClick(event) {
+            event.preventDefault();
+            if (!hasClicked) hasClicked = true;
+            overlay.hidden = true;
+            video.play();
+            videoClick();
+        }
 
-            function videoClick(event) {
-                if(event) event.preventDefault();
-                // if not fullscreen
-                const { documentElement } = document;
-                if(documentElement.requestFullscreen) documentElement.requestFullscreen();
-                else if(documentElement.mozRequestFullScreen) documentElement.mozRequestFullScreen();
-                else if(documentElement.webkitRequestFullscreen) documentElement.webkitRequestFullscreen();
-                else if(documentElement.msRequestFullscreen) documentElement.msRequestFullscreen();
-            }
+        function videoClick(event) {
+            if (event) event.preventDefault();
+            // if not fullscreen
+            const { documentElement } = document;
+            if (documentElement.requestFullscreen) documentElement.requestFullscreen();
+            else if (documentElement.mozRequestFullScreen) documentElement.mozRequestFullScreen();
+            else if (documentElement.webkitRequestFullscreen) documentElement.webkitRequestFullscreen();
+            else if (documentElement.msRequestFullscreen) documentElement.msRequestFullscreen();
+        }
 
-            acceptButton.addEventListener("click", buttonClick);
-            declineButton.addEventListener("click", buttonClick);
-            video.addEventListener("click", videoClick);
-        </script>
-    </body>
+        acceptButton.addEventListener("click", buttonClick);
+        declineButton.addEventListener("click", buttonClick);
+        video.addEventListener("click", videoClick);
+    </script>
+</body>
+
 </html>
