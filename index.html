@@ -38,11 +38,14 @@
         }
 
         p.overlay-title {
-            text-shadow: 2px 0 #f9ff86, 0 2px #f9ff86, 2px 0 #f9ff86, 0 2px #f9ff86;            font-family: math;
+            font-family: math;
             font-size: 24px;
             font-weight: 900;
-            color: black;
+            color: rgb(0, 0, 0);
             line-height: 1;
+            border-radius: 20px;
+            padding: 3px 0px 2px 0px;
+            text-shadow: 2px 2px 4px rgba(31, 31, 31, 0.6);
 
             margin-bottom: 16px;
         }
@@ -68,18 +71,45 @@
         #accept-button {
             background-color: #000000;
             color: white;
+            /* border: 2px solid #e7e7e7; */
+            border-radius: 45px;
+            transition: all 0.3s;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        #accept-button:hover {
+            background: #ffff00;
+            /* border: 2px solid #000000; */
+            color: #000000;
+            font-size: 1.2em;
         }
 
         #decline-button {
             color: #000000;
+            /* background: #e7e7e7; */
             border: 2px solid #000000;
+            border-radius: 45px;
+            transition: all 0.3s;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+
+
+        }
+
+        #decline-button:hover {
+            /* background: #000000; */
+            border: 2px solid #ffff00;
+            font-size: 17px;
         }
 
         p.overlay-description {
             text-align: justify;
             font-size: 16px;
             font-weight: 400;
-            color: rgba(0, 0, 0, 0.5);
+            color:#555;
             line-height: 1.25;
 
             margin-bottom: 16px;
@@ -90,14 +120,19 @@
 
             text-decoration: none;
 
-            font-size: 16px;
+            font-size: 12px;
             font-weight: 500;
             color: #000000;
             line-height: 1;
 
             position: relative;
+            transition: all 0.3s;
 
             margin-top: 16px;
+        }
+
+        a.overlay-link:hover {
+            color: #ffff00;
         }
 
         a.overlay-link::before {
@@ -115,13 +150,19 @@
         }
 
         .overlay-body {
-            border: #000000 solid 3px;
-            background: #ffffffe6;
-            padding: 10px;
-            border-radius: 10px;
-            max-width: 512px;
+            /* border: #000000 solid 3px; */
+            /* background: #ffffffe6; */
+            padding: 13px;
+            /* border-radius: 10px; */
+            /* max-width: 512px; */
             text-align: center;
             font-family: "Inter", sans-serif;
+            width: 350px;
+            height: 320px;
+            background: rgb(223, 225, 235);
+            border-radius: 50px;
+            box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
         }
 
         .overlay[hidden] {
