@@ -43,6 +43,8 @@ A versão inicial do site incluirá os seguintes jogos:
 
 O código de habilidade Alexa Rock Radio e sua funcionalidade. A habilidade permite aos usuários ouvir uma estação de rádio de rock invocando a habilidade e fornece controles básicos de reprodução. Ao personalizar e estender essa habilidade de amostra, você pode criar suas próprias habilidades Alexa para reproduzir diferentes fluxos de áudio ou implementar recursos de reprodução de áudio mais avançados.
 
+# Autor
+
 Márcio Sena 
 
 https://www.linkedin.com/in/marciosenaf/
